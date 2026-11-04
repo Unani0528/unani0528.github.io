@@ -1,13 +1,13 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
+import { themes as prismThemes } from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  title: "UNANI",
+  // tagline: "Dinosaurs are cool",
+  // favicon: "img/favicon.ico",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -15,54 +15,54 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: "https://unaninotes.kr",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: "Unani0528", // Usually your GitHub org/user name.
+  projectName: "Unani Notes", // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: "throw",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       {
         docs: {
-          sidebarPath: './sidebars.ts',
+          sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         blog: {
           showReadingTime: true,
           feedOptions: {
-            type: ['rss', 'atom'],
+            type: ["rss", "atom"],
             xslt: true,
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
           // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
+          onInlineTags: "warn",
+          onInlineAuthors: "warn",
+          onUntruncatedBlogPosts: "warn",
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
     ],
@@ -70,70 +70,92 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: "img/docusaurus-social-card.jpg",
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'My Site',
+      title: "Unani Notes",
+      /*
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: "Unani's Notes",
+        src: "img/logo.svg",
       },
+      */
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
+          to: "/portfolio", label: "Portfolio", position:"left"
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
+          type: "docSidebar",
+          sidebarId: "tutorialSidebar",
+          position: "left",
+          label: "Tutorial",
+        },
+        { to: "/blog", label: "Blog", position: "left" },
+        {
+          href: "https://www.naver.com",
+          label: "Naver",
+          position: "left",
         },
       ],
     },
     footer: {
-      style: 'dark',
+      style: "dark",
       links: [
         {
-          title: 'Docs',
+          title: "Career & Me",
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: "Portfolio",
+              to: "/portfolio",
+            },
+            {
+              // 이력서?
+              label: "Resume / CV",
+              to: "/resume",
+            },
+            {
+              label: "Projects",
+              to: "/project", // Career 또는 Blog 카테고리 중 적절한 위치로 배치
             },
           ],
         },
         {
-          title: 'Community',
+          title: "Blog & Content",
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: "Tech Notes",
+              to: "/blog",
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: "Paper Review",
+              to: "/paper",
             },
             {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              label: "Tags & Topics",
+              to: "/tags", // 작성 글이 쌓일 때 주제별로 찾아보기 용이
+            },
+            {
+              label: "RSS Feed",
+              href: "/rss.xml", // 기술 블로그 필수 요소 (구독용)
             },
           ],
         },
         {
-          title: 'More',
+          title: "Connect",
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: "GitHub",
+              href: "https://github.com/unani0528",
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: "LinkedIn",
+              href: "https://linkedin.com/in/unani0528/", // http -> https 수정
+            },
+            {
+              label: "Email",
+              href: "mailto:ok0528ok0@gmail.com",
             },
           ],
         },
