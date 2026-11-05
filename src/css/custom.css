@@ -4,6 +4,11 @@
  * work well for content-centric websites.
  */
 
+ @font-face {
+  font-family: 'D2Coding';
+  src: url(../../static/font/D2Coding/D2Coding-Ver1.4.0-20261003.ttf);
+ }
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #2e8555;
@@ -15,6 +20,10 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* 시스템 기본 폰트 설정*/
+  --ifm-font-family-base: 'D2Coding', -apple-system;
+  --ifm-font-family-monospace: 'D2Coding', -apple-system;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
