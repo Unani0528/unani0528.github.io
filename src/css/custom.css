@@ -24,6 +24,17 @@
   /* 시스템 기본 폰트 설정*/
   --ifm-font-family-base: 'D2Coding', -apple-system;
   --ifm-font-family-monospace: 'D2Coding', -apple-system;
+
+  /* 기본 배경 색상 */
+  --ifm-background-color: #F1F3E0;
+  
+  /* 커스텀 색상 from Djamaile */
+  --portfolio-card-border: #c2c8cf;
+  --ifm-heading-color: #1e293b;
+  --portfolio-card-bg: #ffffff;
+  --portfolio-card-border: #e2e8f0;
+  --portfolio-text-muted: #64748b;
+
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -36,4 +47,13 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  /* 기본 배경 색상 */
+  --ifm-background-color: #24281e;
+
+  /* 커스텀 색상 from Djamaile */ 
+  --ifm-heading-color: #f1f5f9;
+  --portfolio-card-bg: #16261b;
+  --portfolio-card-border: #334155;
+  --portfolio-text-muted: #94a3b8;
 }

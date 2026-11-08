@@ -83,20 +83,23 @@ const config: Config = {
       },
       */
       items: [
-        {
-          to: "/portfolio", label: "Portfolio", position:"left"
-        },
-        {
-          type: "docSidebar",
-          sidebarId: "tutorialSidebar",
-          position: "left",
-          label: "Tutorial",
-        },
         { to: "/blog", label: "Blog", position: "left" },
+        { to: "/project", label: "Projects", position: "left" },
+        { to: "/paper", label: "Paper", position: "left" },
         {
-          href: "https://www.naver.com",
-          label: "Naver",
-          position: "left",
+          href: "https://www.github.com/unani0528",
+          label: "GitHub",
+          position: "right",
+        },
+        {
+          href: "https://linkedin.com/in/unani0528/",
+          label: "LinkedIn",
+          position: "right",
+        },
+        {
+          href: "mailto:ok0528ok0@gmail.com",
+          label: "Email",
+          position: "right",
         },
       ],
     },
@@ -167,6 +170,32 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+
+  customFields: {
+    aboutMe: {
+      avatarUrl: 'path',
+      name: 'Jeong YunHwan',
+      bio: '나에 대한 설명 \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac laoreet quam, id aliquet nisl. Etiam id eros ligula. Aenean euismod, enim sed mollis feugiat, magna massa cursus leo, ut maximus metus eros non ante. Praesent eget tincidunt mauris, ut euismod ipsum. In hac habitasse platea dictumst. In dapibus tortor magna, elementum elementum neque sagittis id. Integer vestibulum semper dui, quis finibus libero elementum nec. Fusce ultricies lectus a eros interdum, efficitur iaculis nibh varius. Praesent sed ex bibendum, fermentum tortor nec, tincidunt augue. Maecenas in lobortis ligula, at viverra velit. Donec facilisis blandit purus sed efficitur. Duis est augue, bibendum quis bibendum sed, feugiat vel eros. Quisque ut nisi sed erat malesuada euismod. Aliquam feugiat erat eget sodales imperdiet. Ut vel tortor auctor, rutrum lectus a, tempor nunc. Vivamus nec elit ornare, dictum urna sollicitudin, ornare diam. Nullam dictum arcu vitae odio ultrices iaculis.',
+      location: 'Seoul',
+      workAt: 'HCI Lab', 
+      interest: [],
+      email: 'ok0528ok0@gmail.com',
+      githubId: 'unani0528',
+      linkedinUrl: 'linkedin url',
+      // 언어 및 기술
+      skills: [
+        { category: 'Frontend', items: ['React', 'TypeScript'] },
+        { category: 'Backend', items: ['Rust', 'Python', 'C++', 'Java'] },
+        { category: 'Cloud', items: ['Kubernetes', 'AWS', 'Naver Cloud'] },
+        { category: 'Tools', items: ['Docker'] },
+        { category: 'OA', items: ['한글', 'Word', 'PowerPoint', 'Execel'] },
+      ],
+    },
+    // DB로 관리? 혹은 어떤식으로 보여줄지 고민
+    projectShowcase: [
+      { projName: ''}
+    ]
+  },
 };
 
 export default config;

@@ -4,8 +4,8 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
+  padding: 5rem;
+  max-height: fit-content;
   position: relative;
   overflow: hidden;
 }
@@ -16,8 +16,123 @@
   }
 }
 
-.buttons {
+.heroContent {
+  max-width: 1200px;
+  margin: 0 auto;
+
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.heroText {
+  flex: 0 0 65%;
+  max-width: 80%;
+  text-align: left;
+}
+
+.heroImage {
+  flex: 0 0 20%;
+  display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.heroImage img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .heroContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .heroText {
+    text-align: center;
+  }
+
+  .heroImage img {
+    max-width: 280px;
+  }
+}
+
+/* 외부 버튼 button-74 */
+/* CSS */
+.button74 {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button74:hover {
+  background-color: #fff;
+}
+
+.button74:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button74 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+/* contact 버튼관리 */
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+gap: 0.75rem;
+}
+
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Sora', -apple-system, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ifm-heading-color);
+  background: var(--portfolio-card-bg);
+  border: 1px solid var(--portfolio-card-border);
+  padding: 0.875rem 1.25rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.secondaryButton:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  transform: translateY(-2px);
+}
+
+.secondaryButton svg {
+  opacity: 0.7;
+}
+
+.secondaryButton:hover svg {
+  opacity: 1;
 }
