@@ -181,7 +181,7 @@ const config: Config = {
       interest: [],
       email: 'ok0528ok0@gmail.com',
       githubId: 'unani0528',
-      linkedinUrl: 'linkedin url',
+      linkedinId: 'unani0528',
       // 언어 및 기술
       skills: [
         { category: 'Frontend', items: ['React', 'TypeScript'] },
