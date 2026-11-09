@@ -35,8 +35,8 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: "ko",
+    locales: ["ko"],
   },
 
   presets: [
@@ -209,15 +209,14 @@ const config: Config = {
         id: 'paper_and_standard',
         path: 'paper_and_standard',
         routeBasePath: 'paper_and_standard',
-        sidebarPath: './sidebars.ts',
-        breadcrumbs: true,
+        sidebarPath: require.resolve('./src/sidebars/PaperAndStandard.ts'), // 개별 사이드바 설정 파일 지정
       },
     ],
   ],
 };
 
 // 폴더수(카테고리) 포스트 수를 세는 함수
-function getDeepDirectoryStats(targetDirPath:string) {
+function getDeepDirectoryStats(targetDirPath: string) {
   let folderCount = 0;
   let totalPosts = 0;
 
