@@ -43,13 +43,16 @@ const config: Config = {
     [
       "classic",
       {
-        docs: {
+        docs: false,
+        /*
+        {
           sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
+          // editUrl:
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
+        */
         blog: {
           showReadingTime: true,
           feedOptions: {
@@ -59,7 +62,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/unani0528/unani0528.github.io",
           // Useful options to enforce blogging best practices
           onInlineTags: "warn",
           onInlineAuthors: "warn",
@@ -73,6 +76,9 @@ const config: Config = {
   ],
 
   themeConfig: {
+    toc: {
+      maxHeadingLevel: 4,
+    },
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     colorMode: {
@@ -181,7 +187,7 @@ const config: Config = {
       name: 'Jeong YunHwan',
       bio: '나에 대한 설명 \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac laoreet quam, id aliquet nisl. Etiam id eros ligula. Aenean euismod, enim sed mollis feugiat, magna massa cursus leo, ut maximus metus eros non ante. Praesent eget tincidunt mauris, ut euismod ipsum. In hac habitasse platea dictumst. In dapibus tortor magna, elementum elementum neque sagittis id. Integer vestibulum semper dui, quis finibus libero elementum nec. Fusce ultricies lectus a eros interdum, efficitur iaculis nibh varius. Praesent sed ex bibendum, fermentum tortor nec, tincidunt augue. Maecenas in lobortis ligula, at viverra velit. Donec facilisis blandit purus sed efficitur. Duis est augue, bibendum quis bibendum sed, feugiat vel eros. Quisque ut nisi sed erat malesuada euismod. Aliquam feugiat erat eget sodales imperdiet. Ut vel tortor auctor, rutrum lectus a, tempor nunc. Vivamus nec elit ornare, dictum urna sollicitudin, ornare diam. Nullam dictum arcu vitae odio ultrices iaculis.',
       location: 'Seoul',
-      workAt: 'HCI Lab', 
+      workAt: 'HCI Lab',
       interest: [],
       email: 'ok0528ok0@gmail.com',
       githubId: 'unani0528',
@@ -197,9 +203,9 @@ const config: Config = {
     },
     // DB로 관리? 혹은 어떤식으로 보여줄지 고민
     projectShowcase: [
-      { projName: ''}
+      { projName: '' }
     ],
-    paper_and_standard_stats: getDeepDirectoryStats('paper_and_standard'), 
+    paper_and_standard_stats: getDeepDirectoryStats('paper_and_standard'),
   },
 
   plugins: [
@@ -209,7 +215,16 @@ const config: Config = {
         id: 'paper_and_standard',
         path: 'paper_and_standard',
         routeBasePath: 'paper_and_standard',
-        sidebarPath: require.resolve('./src/sidebars/PaperAndStandard.ts'), // 개별 사이드바 설정 파일 지정
+        sidebarPath: require.resolve('./src/sidebars/PaperAndStandard.ts'),
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'project',
+        path: 'project',
+        routeBasePath: 'project',
+        sidebarPath: require.resolve('./sidebars.ts'),
       },
     ],
   ],
