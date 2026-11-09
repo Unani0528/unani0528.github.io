@@ -1,0 +1,101 @@
+---
+title: Paper and Standard
+sidebar_position: 1
+slug: /
+---
+import Heading from '@theme/Heading';
+import Link from '@docusaurus/Link';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+
+export const featuredPapers = [
+  /*
+  {
+    title: 'KVell: Key-Value Store on Flash SSDs',
+    category: 'System & Storage',
+    date: '2026-11-05',
+    description: 'Shared-nothing, multi-core architecture key-value storage engine review focused on NVMe SSD performance.',
+    permalink: '/paper_and_standard/kvell',
+  },
+  */
+];
+
+export const PaperStats = () => {
+  const { siteConfig } = useDocusaurusContext();
+  const paperStats = siteConfig.customFields?.paper_and_standard_stats || {
+    folderCount: 0,
+    totalPosts: 0,
+  };
+
+  return (
+    <div style={{textAlign:'center', width: '100%'}}>
+    <div 
+      className="margin-top--md" 
+      style={{ 
+        display: 'inline-flex', 
+        gap: '1.5rem', 
+        background: 'var(--ifm-color-emphasis-200)', 
+        padding: '0.75rem 1.5rem', 
+        borderRadius: '8px',
+        alignItems: 'center' 
+      }}
+    >
+      <div>
+        <strong>리뷰한 논문, 표준문서 수:</strong> {paperStats.folderCount}개
+      </div>
+      <div>
+        <strong>작성한 글 수:</strong> {paperStats.totalPosts}개
+      </div>
+    </div>
+    </div>
+  );
+};
+
+<main className="container margin-vert--lg">
+  
+  {/* 상단 헤더 및 변경된 라벨 적용 */}
+  <header className="margin-bottom--xl">
+    <p className="hero__subtitle margin-top--md">
+      IT 논문 및 표준 기술 문서를 공부한 내용을 기록한 아카이브입니다.
+    </p>
+    <PaperStats />
+  </header>
+
+  {/* 하단: 주요 논문 리뷰 카드 섹션 */}
+  <section>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+      <Heading as="h2">🔥 Featured & Recent Reviews</Heading>
+      <Link className="button button--secondary button--sm" to="/paper_and_standard/kvell">
+        전체 목록 보기 →
+      </Link>
+    </div>
+
+    <div className="row">
+      {featuredPapers.map((paper, idx) => (
+        <div key={idx} className="col col--6 margin-bottom--lg">
+          <div 
+            className="card" 
+            style={{ 
+              height: '100%', 
+              display: 'flex', 
+              flexDirection: 'column', 
+              justifyContent: 'space-between' 
+            }}
+          >
+            <div className="card__body">
+              <span className="badge badge--primary margin-bottom--sm">{paper.category}</span>
+              <Heading as="h3">{paper.title}</Heading>
+              <small className="text--muted">작성일: {paper.date}</small>
+              <p className="margin-top--sm">{paper.description}</p>
+            </div>
+            <div className="card__footer">
+              <Link className="button button--outline button--primary button--block" to={paper.permalink}>
+                리뷰 읽기
+              </Link>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+</main>
