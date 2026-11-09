@@ -83,9 +83,9 @@ const config: Config = {
       },
       */
       items: [
-        { to: "/blog", label: "Blog", position: "left" },
-        { to: "/project", label: "Projects", position: "left" },
-        { to: "/paper", label: "Paper", position: "left" },
+        { to: "/blog", label: "\'Blog\'", position: "left" },
+        { to: "/project", label: "\'Projects\'", position: "left" },
+        { to: "/paper_and_standard", label: "\'Paper & Standard\'", position: "left" },
         {
           href: "https://www.github.com/unani0528",
           label: "GitHub",
@@ -194,8 +194,21 @@ const config: Config = {
     // DB로 관리? 혹은 어떤식으로 보여줄지 고민
     projectShowcase: [
       { projName: ''}
-    ]
+    ],
   },
+
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'paper_and_standard',
+        path: 'paper_and_standard',
+        routeBasePath: 'paper_and_standard',
+        sidebarPath: './sidebars.ts',
+        breadcrumbs: true,
+      },
+    ],
+  ],
 };
 
 export default config;
