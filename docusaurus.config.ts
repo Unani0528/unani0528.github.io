@@ -1,6 +1,10 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import fs from 'fs';
+import path from 'path';
+
+
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -195,6 +199,7 @@ const config: Config = {
     projectShowcase: [
       { projName: ''}
     ],
+    paper_and_standard_stats: getDeepDirectoryStats('paper_and_standard'), 
   },
 
   plugins: [
@@ -210,5 +215,49 @@ const config: Config = {
     ],
   ],
 };
+
+// 폴더수(카테고리) 포스트 수를 세는 함수
+function getDeepDirectoryStats(targetDirPath:string) {
+  let folderCount = 0;
+  let totalPosts = 0;
+
+  try {
+    const resolvedDir = path.resolve(__dirname, targetDirPath);
+
+    if (fs.existsSync(resolvedDir)) {
+      // 1. 최상위 경로 바로 아래의 1단계 폴더 개수 카운팅
+      const rootEntries = fs.readdirSync(resolvedDir, { withFileTypes: true });
+      folderCount = rootEntries.filter((entry) => entry.isDirectory()).length;
+
+      // 2. 깊이 제한 없이 모든 하위 폴더와 파일을 재귀적으로 순회하는 함수
+      function traverseDirectory(currentDir: string) {
+        const items = fs.readdirSync(currentDir, { withFileTypes: true });
+
+        for (const item of items) {
+          const fullPath = path.join(currentDir, item.name);
+
+          if (item.isDirectory()) {
+            // 하위 폴더를 만나면 깊이와 상관없이 다시 이 함수를 호출 (재귀)
+            traverseDirectory(fullPath);
+          } else if (item.isFile()) {
+            // 파일 확장자가 .md 또는 .mdx인지 확인
+            const ext = path.extname(item.name).toLowerCase();
+            if (ext === '.md' || ext === '.mdx') {
+              totalPosts++;
+            }
+          }
+        }
+      }
+
+      // 탐색 시작
+      traverseDirectory(resolvedDir);
+    }
+  } catch (e) {
+    console.error(`Failed to read directory (${targetDirPath}):`, e);
+  }
+
+  return { folderCount, totalPosts };
+}
+
 
 export default config;
