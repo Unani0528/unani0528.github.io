@@ -1,0 +1,86 @@
+// How to Set
+// 1. Install luasnip
+
+// 2. make package file (~/.config/nvim/snippets/package.json)
+//{
+//  "name": "my-snippets",
+//  "contributes": {
+//    "snippets": [
+//      {
+//        "language": [
+//          "markdown",
+//          "mdx"
+//        ],
+//        "path": "./markdown.json"
+//      }
+//    ]
+//  }
+//}
+
+// 3. make snippet file (~/.config/nvim/snippets/markdown.json)
+//{
+//  "truncate": {
+//    "prefix": "tr",
+//    "body": ["{/* truncate */}", "$0"],
+//    "description": "MD, MDX 문서에서 요약을 표시하기 위한 구분자"
+//  },
+//
+//  "image": {
+//    "prefix": "img",
+//    "body": ["![$1]($2)", "$0"],
+//    "description": "Markdown 이미지 삽입"
+//  },
+//
+//  "link": {
+//    "prefix": "ln",
+//    "body": ["[$1]($2)", "$0"],
+//    "description": "Markdown 링크 삽입"
+//  },
+//
+//  "Code Block": {
+//    "prefix": "code",
+//    "body": [
+//      "``` ${1|c,cpp,csharp,clojure,dart,elixir,erlang,fsharp,go,groovy,haskell,java,javascript,julia,kotlin,lua,objectivec,ocaml,perl,php,python,r,ruby,rust,scala,bash,swift,typescript|}",
+//      "${2:코드 작성}",
+//      "```",
+//      "$0"
+//    ],
+//    "description": "Markdown 코드 블록"
+//  },
+//
+//  "Docusaurus Core Front Matter": {
+//    "prefix": "doc-front",
+//    "body": [
+//      "---",
+//      "# 1. 기본 정보 및 SEO",
+//      "title: \"${1:문서 제목}\"",
+//      "description: \"${2:검색 엔진 및 링크 공유에 표시될 요약 설명}\"",
+//      "slug: \"${3:/custom-url-path}\"",
+//      "",
+//      "# 2. 작성일 및 상태 제어",
+//      "date: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}",
+//      "draft: ${4|false,true|}",
+//      "",
+//      "# 3. 사이드바 및 네비게이션 제어",
+//      "sidebar_label: \"${5:사이드바 표시 이름}\"",
+//      "sidebar_position: ${6:1}",
+//      "",
+//      "# 4. 분류 및 메타데이터",
+//      "tags: [${7:docusaurus, markdown}]",
+//      "keywords: [${8:docs, guide}]",
+//      "image: \"${9:/img/social-card.png}\"",
+//      "---",
+//      "",
+//      "# ${1:문서 제목}",
+//      "",
+//      "$0"
+//    ],
+//    "description": "Docusaurus 문서용 Front Matter 템플릿"
+//  },
+//
+//  "Center Text": {
+//    "prefix": "center",
+//    "body": ["<p align=\"center\">$1</p>", "$0"],
+//    "description": "텍스트 중앙 정렬"
+//  }
+//}
