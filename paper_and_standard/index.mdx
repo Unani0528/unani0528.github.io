@@ -8,15 +8,13 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 export const featuredPapers = [
-  /*
   {
-    title: 'KVell: Key-Value Store on Flash SSDs',
-    category: 'System & Storage',
-    date: '2026-11-05',
-    description: 'Shared-nothing, multi-core architecture key-value storage engine review focused on NVMe SSD performance.',
-    permalink: '/paper_and_standard/kvell',
+    title: "WebSocket - RFC6455 : The WebSocket Protocol",
+    category: [ 'standard', 'network', 'protocol', 'http', 'websocket', 'IETF', 'rfc6455'],
+    date: '2026-09-22',
+    description: '웹소켓 프로토콜의 표준 문서 파헤치기',
+    permalink: '/paper_and_standard/websocket',
   },
-  */
 ];
 
 export const PaperStats = () => {
@@ -82,7 +80,17 @@ export const PaperStats = () => {
             }}
           >
             <div className="card__body">
-              <span className="badge badge--primary margin-bottom--sm">{paper.category}</span>
+
+              <div className="margin-bottom--sm">
+  {paper.category.map((category, categoryIdx) => (
+    <span
+      key={categoryIdx}
+      className="badge badge--primary margin-right--sm"
+    >
+      {category}
+    </span>
+  ))}
+</div>
               <Heading as="h3">{paper.title}</Heading>
               <small className="text--muted">작성일: {paper.date}</small>
               <p className="margin-top--sm">{paper.description}</p>
