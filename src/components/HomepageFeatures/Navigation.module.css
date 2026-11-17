@@ -1,0 +1,53 @@
+/* 네비게이션 바 스타일 */
+.stickyNav {
+  position: sticky;
+  /* Docusaurus 기본 네비게이션 바 바로 아래에 붙도록 설정 */
+  top: var(--ifm-navbar-height, 60px); 
+  z-index: var(--ifm-z-index-fixed, 100);
+
+  background: var(--portfolio-hero-banner-bg);
+  
+  /* 부모 패딩을 무시하고 화면 좌우 끝까지 꽉 채우는 트릭 */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+.stickyNav a {
+  text-decoration: none;
+  color: var(--ifm-font-color-base);
+  display: flex;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+/* 기존 .stickyNav 아래에 추가 */
+.navItem {
+  text-decoration: none;
+  color: var(--ifm-heading-color);
+  display: flex;
+  gap: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.navItem:hover {
+  color: var(--ifm-color-primary);
+}
+
+/* 현재 보고 있는 섹션일 때 적용될 하이라이팅 스타일 */
+.activeNav {
+  color: var(--ifm-color-primary) !important;
+  font-weight: bold;
+}
+
+.activeNav span:first-child {
+  opacity: 1 !important;
+}
+
+
