@@ -1,10 +1,8 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
-import fs from 'fs';
-import path from 'path';
-
-
+import fs from "fs";
+import path from "path";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -61,8 +59,7 @@ const config: Config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/unani0528/unani0528.github.io",
+          editUrl: "https://github.com/unani0528/unani0528.github.io",
           // Useful options to enforce blogging best practices
           onInlineTags: "warn",
           onInlineAuthors: "warn",
@@ -180,55 +177,53 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
     tableOfContents: {
-      minHeadingLevel: 2, 
+      minHeadingLevel: 2,
       maxHeadingLevel: 4,
-    }
+    },
   } satisfies Preset.ThemeConfig,
 
   customFields: {
     aboutMe: {
-      avatarUrl: 'path',
-      name: 'Jeong YunHwan',
-      bio: '나에 대한 설명 \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac laoreet quam, id aliquet nisl. Etiam id eros ligula. Aenean euismod, enim sed mollis feugiat, magna massa cursus leo, ut maximus metus eros non ante. Praesent eget tincidunt mauris, ut euismod ipsum. In hac habitasse platea dictumst. In dapibus tortor magna, elementum elementum neque sagittis id. Integer vestibulum semper dui, quis finibus libero elementum nec. Fusce ultricies lectus a eros interdum, efficitur iaculis nibh varius. Praesent sed ex bibendum, fermentum tortor nec, tincidunt augue. Maecenas in lobortis ligula, at viverra velit. Donec facilisis blandit purus sed efficitur. Duis est augue, bibendum quis bibendum sed, feugiat vel eros. Quisque ut nisi sed erat malesuada euismod. Aliquam feugiat erat eget sodales imperdiet. Ut vel tortor auctor, rutrum lectus a, tempor nunc. Vivamus nec elit ornare, dictum urna sollicitudin, ornare diam. Nullam dictum arcu vitae odio ultrices iaculis.',
-      location: 'Seoul',
-      workAt: 'HCI Lab',
+      avatarUrl: "path",
+      name: "Jeong YunHwan",
+      bio: "시스템 프로그래밍, 최적화, 보안 분야를 공부하고 있습니다.",
+      location: "Seoul",
+      workAt: "HCI Lab",
       interest: [],
-      email: 'ok0528ok0@gmail.com',
-      githubId: 'unani0528',
-      linkedinId: 'unani0528',
+      email: "ok0528ok0@gmail.com",
+      githubId: "unani0528",
+      linkedinId: "unani0528",
       // 언어 및 기술
       skills: [
-        { category: 'Frontend', items: ['React', 'TypeScript'] },
-        { category: 'Backend', items: ['Rust', 'Python', 'C++', 'Java'] },
-        { category: 'Cloud', items: ['Kubernetes', 'AWS', 'Naver Cloud'] },
-        { category: 'Tools', items: ['Docker'] },
-        { category: 'OA', items: ['한글', 'Word', 'PowerPoint', 'Execel'] },
+        { category: "Frontend", items: ["React", "TypeScript"] },
+        { category: "Backend", items: ["Rust", "Python", "C++", "Java"] },
+        { category: "Cloud", items: ["Kubernetes", "AWS", "Naver Cloud"] },
+        { category: "Tools", items: ["Docker"] },
+        { category: "OA", items: ["한글", "Word", "PowerPoint", "Execel"] },
       ],
     },
     // DB로 관리? 혹은 어떤식으로 보여줄지 고민
-    projectShowcase: [
-      { projName: '' }
-    ],
-    paper_and_standard_stats: getDeepDirectoryStats('paper_and_standard'),
+    projectShowcase: [{ projName: "" }],
+    paper_and_standard_stats: getDeepDirectoryStats("paper_and_standard"),
   },
 
   plugins: [
     [
-      '@docusaurus/plugin-content-docs',
+      "@docusaurus/plugin-content-docs",
       {
-        id: 'paper_and_standard',
-        path: 'paper_and_standard',
-        routeBasePath: 'paper_and_standard',
-        sidebarPath: require.resolve('./src/sidebars/PaperAndStandard.ts'),
+        id: "paper_and_standard",
+        path: "paper_and_standard",
+        routeBasePath: "paper_and_standard",
+        sidebarPath: require.resolve("./src/sidebars/PaperAndStandard.ts"),
       },
     ],
     [
-      '@docusaurus/plugin-content-docs',
+      "@docusaurus/plugin-content-docs",
       {
-        id: 'project',
-        path: 'project',
-        routeBasePath: 'project',
-        sidebarPath: require.resolve('./sidebars.ts'),
+        id: "project",
+        path: "project",
+        routeBasePath: "project",
+        sidebarPath: require.resolve("./sidebars.ts"),
       },
     ],
   ],
@@ -260,7 +255,7 @@ function getDeepDirectoryStats(targetDirPath: string) {
           } else if (item.isFile()) {
             // 파일 확장자가 .md 또는 .mdx인지 확인
             const ext = path.extname(item.name).toLowerCase();
-            if (ext === '.md' || ext === '.mdx') {
+            if (ext === ".md" || ext === ".mdx") {
               totalPosts++;
             }
           }
@@ -276,6 +271,5 @@ function getDeepDirectoryStats(targetDirPath: string) {
 
   return { folderCount, totalPosts };
 }
-
 
 export default config;
