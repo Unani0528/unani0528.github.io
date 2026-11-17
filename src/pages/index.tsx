@@ -1,40 +1,95 @@
-import type { ReactNode } from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Heading from '@theme/Heading';
-
-import styles from './index.module.css';
+import type { ReactNode } from "react";
+import { useState, useEffect } from "react";
+import clsx from "clsx";
+import Link from "@docusaurus/Link";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Layout from "@theme/Layout";
+import HomepageFeatures from "@site/src/components/HomepageFeatures";
+import Heading from "@theme/Heading";
+import HeaderNav from "@site/src/components/HomepageFeatures/HeaderNav";
+import styles from "./index.module.css";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   const { aboutMe } = siteConfig.customFields as any;
 
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={clsx("hero hero--primary", styles.heroBanner)}>
+      <div className={styles.heroContent}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-evenly",
+          }}
+        >
+          <div>
+            <p
+              style={{
+                color: "var(--ifm-font-color-base)",
+                letterSpacing: "0.1rem",
+                fontWeight: "700",
+              }}
+            >
+              Security Researcher & Software Engineer
+            </p>
+            <Heading as="h1" className={styles.heroName}>
+              <span>{aboutMe.name.split(" ")[0]}</span>
+              <br />
+              <span>{aboutMe.name.split(" ")[1]}</span>
+            </Heading>
+          </div>
+          <p className={styles.heroBio}>{aboutMe.bio}</p>
+        </div>
+      </div>
+    </header>
+    /*
+    <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className={styles.heroContent}>
         <div className="container">
-          <Heading as="h1" className="">
-            <span>{aboutMe.name.split(' ')[0]}</span>
+          <p style={{ color: "#FFA500", letterSpacing: "0.1em" }}>
+            Security Researcher & Software Engineer
+          </p>
+          <Heading as="h1" style={{ fontSize: "5rem" }} className="">
+            <span>{aboutMe.name.split(" ")[0]}</span>
             <br />
-            <span>{aboutMe.name.split(' ')[1]}</span>
+            <span>{aboutMe.name.split(" ")[1]}</span>
           </Heading>
           <p className={styles.heroText}>{aboutMe.bio}</p>
           <div className={styles.heroMeta}>
             <span className={styles.metaItem}>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M8 8.5C9.38071 8.5 10.5 7.38071 10.5 6C10.5 4.61929 9.38071 3.5 8 3.5C6.61929 3.5 5.5 4.61929 5.5 6C5.5 7.38071 6.61929 8.5 8 8.5Z" stroke="currentColor" strokeWidth="1.5" />
-                <path d="M8 14C8 14 13 10.5 13 6.5C13 3.73858 10.7614 1.5 8 1.5C5.23858 1.5 3 3.73858 3 6.5C3 10.5 8 14 8 14Z" stroke="currentColor" strokeWidth="1.5" />
+                <path
+                  d="M8 8.5C9.38071 8.5 10.5 7.38071 10.5 6C10.5 4.61929 9.38071 3.5 8 3.5C6.61929 3.5 5.5 4.61929 5.5 6C5.5 7.38071 6.61929 8.5 8 8.5Z"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                />
+                <path
+                  d="M8 14C8 14 13 10.5 13 6.5C13 3.73858 10.7614 1.5 8 1.5C5.23858 1.5 3 3.73858 3 6.5C3 10.5 8 14 8 14Z"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                />
               </svg>
               {aboutMe.location}
             </span>
             <span className={styles.metaDivider}> · </span>
             <span className={styles.metaItem}>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M2 4.5H14M2 4.5V12.5C2 13.0523 2.44772 13.5 3 13.5H13C13.5523 13.5 14 13.0523 14 12.5V4.5M2 4.5L3.5 2.5H12.5L14 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M6 7.5L7.5 9L10 6.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path
+                  d="M2 4.5H14M2 4.5V12.5C2 13.0523 2.44772 13.5 3 13.5H13C13.5523 13.5 14 13.0523 14 12.5V4.5M2 4.5L3.5 2.5H12.5L14 4.5"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M6 7.5L7.5 9L10 6.5"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
               {aboutMe.workAt}
             </span>
@@ -43,7 +98,11 @@ function HomepageHeader() {
             <Link className={styles.button74} to="/blog">
               Read My Journal
             </Link>
-            <a href="mydata/resume.pdf" className={styles.button74} download={`${aboutMe.name}_Resume.pdf`}>
+            <a
+              href="mydata/resume.pdf"
+              className={styles.button74}
+              download={`${aboutMe.name}_Resume.pdf`}
+            >
               Download CV
             </a>
             <Link to={`https://github.com/${aboutMe.githubId}`} className={styles.secondaryButton}>
@@ -52,14 +111,24 @@ function HomepageHeader() {
               </svg>
               GitHub
             </Link>
-            <Link to={`https://www.linkedin.com/in/${aboutMe.linkedinUrl}`} className={styles.secondaryButton}>
+            <Link
+              to={`https://www.linkedin.com/in/${aboutMe.linkedinUrl}`}
+              className={styles.secondaryButton}
+            >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
               </svg>
               LinkedIn
             </Link>
             <a href={`mailto:${aboutMe.email}`} className={styles.secondaryButton}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <rect x="2" y="4" width="20" height="16" rx="2" />
                 <path d="M22 7L12 13L2 7" />
               </svg>
@@ -71,7 +140,8 @@ function HomepageHeader() {
       <div className={styles.heroImage}>
         <img src="/mydata/profile.jpg" className={styles.heroImageimg} alt="" />
       </div>
-    </header >
+    </header>
+      */
   );
 }
 
@@ -79,9 +149,11 @@ export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`About ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`Security Researcher & Software Engineer`}
+      description="Description will go into a meta tag in <head />"
+    >
       <HomepageHeader />
+      <HeaderNav />
       <main>
         <HomepageFeatures />
       </main>

@@ -11,30 +11,38 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #8F6963;
+  --ifm-color-primary-dark: #A17D77;
+  --ifm-color-primary-darker: #8F6963;
+  --ifm-color-primary-darkest: #8F6963;
+  --ifm-color-primary-light: #D2BCB7;
+  --ifm-color-primary-lighter: #E0CFCA;
+  --ifm-color-primary-lightest: #EEE3DF;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
   /* 시스템 기본 폰트 설정*/
   --ifm-font-family-base: 'D2Coding', -apple-system;
   --ifm-font-family-monospace: 'D2Coding', -apple-system;
+  --ifm-heading-color: #2B2422;
+  --ifm-font-color-base: #49312D;
 
   /* 기본 배경 색상 */
-  --ifm-background-color: #F1F3E0;
+  --ifm-background-color: #f2e9e4;
+
+  --portfolio-hero-banner-bg: #c9ada7;
   
   /* 커스텀 색상 from Djamaile */
   --portfolio-card-border: #c2c8cf;
-  --ifm-heading-color: #1e293b;
   --portfolio-card-bg: #ffffff;
   --portfolio-card-border: #e2e8f0;
   --portfolio-text-muted: #64748b;
 
+  --space-indigo: #22223bff;
+  --dusty-grape: #4a4e69ff;
+  --lilac-ash: #9a8c98ff;
+  --almond-silk: #c9ada7ff;
+  --parchment: #f2e9e4ff;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
