@@ -92,7 +92,11 @@ const config: Config = {
       items: [
         { to: "/blog", label: "\'Blog\'", position: "left" },
         { to: "/project", label: "\'Projects\'", position: "left" },
-        { to: "/paper_and_standard", label: "\'Paper & Standard\'", position: "left" },
+        {
+          to: "/paper_and_standard",
+          label: "\'Paper & Standard\'",
+          position: "left",
+        },
         {
           href: "https://www.github.com/unani0528",
           label: "GitHub",
@@ -186,7 +190,7 @@ const config: Config = {
     aboutMe: {
       avatarUrl: "path",
       name: "Jeong YunHwan",
-      bio: "시스템 프로그래밍, 최적화, 보안 분야를 공부하고 있습니다.",
+      bio: "- 시스템 프로그래밍, 최적화, 그리고 보안 분야에 깊은 관심을 갖고, 좋은 아키텍처와 설계 구조를 고민하며 공부하고 있습니다. \n- 주로 Docker와 터미널(LazyVim) 환경에서 개발을 합니다. \n- 오픈소스 보안 진단 로직(SCA)을 설계, 개발하고 이를 기반으로 동작하는 LLM 기반으로 동작하는 보안 진단 에이전트 관련 프로젝트를 구축해 왔으며, 앞으로는 저수준 시스템 프로그래밍과 성능 최적화 영역까지 경험을 넓혀가고자 합니다.",
       location: "Seoul",
       workAt: "HCI Lab",
       interest: [],
@@ -198,7 +202,10 @@ const config: Config = {
         { category: "Frontend", items: ["React", "TypeScript"] },
         { category: "Backend", items: ["Rust", "Python", "C++", "Java"] },
         { category: "Cloud", items: ["Kubernetes", "AWS", "Naver Cloud"] },
-        { category: "Tools", items: ["Docker"] },
+        {
+          category: "Tools",
+          items: ["Docker", "Neovim", "Lazyvim", "Lazygit"],
+        },
         { category: "OA", items: ["한글", "Word", "PowerPoint", "Execel"] },
       ],
     },

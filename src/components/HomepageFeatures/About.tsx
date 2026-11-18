@@ -1,52 +1,46 @@
-import React from 'react';
-import styles from './About.module.css';
+import { ReactNode } from "react";
+import styles from "./About.module.css";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Heading from "@theme/Heading";
+import commonStyles from "./Common.module.css";
 
-const skills = [
-  { category: 'Frontend', items: ['React', 'TypeScript'] },
-  { category: 'Backend', items: ['Rust', 'Python', 'C++', 'Java'] },
-  { category: 'Cloud', items: ['Kubernetes', 'AWS', 'Naver Cloud'] },
-  { category: 'Tools', items: ['Docker'] },
-];
+interface skillGroup {
+  category: string;
+  items: string[];
+}
 
-export const About: React.FC = () => {
+export default function About(): ReactNode {
+  const { siteConfig } = useDocusaurusContext();
+  const { aboutMe } = siteConfig.customFields as any;
+  const skills = aboutMe.skills as skillGroup[];
+
   return (
-    <section className={styles.about}>
-      <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionLabel}>About</span>
-          <div className={styles.sectionLine} />
-        </div>
-
-        <div className={styles.content}>
-          <h2 className={styles.title}>
-            Building tools that make
-            <br />
-            <span className={styles.titleAccent}>developers productive</span>
-          </h2>
-
-          <p className={styles.description}>
-          가나다나
-          </p>
-          <p className={styles.description}>
-          abcdefgh
-          </p>
-        </div>
-
-        <div className={styles.skillsGrid}>
-          {skills.map((skillGroup) => (
-            <div key={skillGroup.category} className={styles.skillGroup}>
-              <h3 className={styles.skillCategory}>{skillGroup.category}</h3>
-              <div className={styles.skillTags}>
-                {skillGroup.items.map((skill) => (
-                  <span key={skill} className={styles.skillTag}>
-                    {skill}
-                  </span>
-                ))}
-              </div>
+    <section className={commonStyles.container}>
+      <div>
+        <Heading as="h2" id="about">
+          About
+        </Heading>
+        <hr className={commonStyles.sectionLine} />
+      </div>
+      <p>나에 대한 글, 자기 소개</p>
+      <Heading as="h3" style={{ marginTop: "2rem" }}>
+        Skills
+      </Heading>
+      <hr className={commonStyles.sectionLine} />
+      <div className={styles.skillsGrid}>
+        {skills.map((skillGroup) => (
+          <div key={skillGroup.category} className={styles.skillGroup}>
+            <h3 className={styles.skillCategory}>{skillGroup.category}</h3>
+            <div className={styles.skillTags}>
+              {skillGroup.items.map((skill) => (
+                <span key={skill} className={styles.skillTag}>
+                  {skill}
+                </span>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );
-};
+}

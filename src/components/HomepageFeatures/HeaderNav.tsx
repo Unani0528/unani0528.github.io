@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { useState, useEffect } from "react";
-import styles from "./Navigation.module.css";
+import styles from "./HeaderNav.module.css";
 
 export default function HeaderNav(): ReactNode {
   const [activeId, setActiveId] = useState<string>("");
@@ -12,11 +12,10 @@ export default function HeaderNav(): ReactNode {
 
   const navItems: NavItem[] = [
     { id: "about", num: "01", text: "About" },
-    { id: "affiliations", num: "02", text: "Affiliations" },
+    { id: "collaborations", num: "02", text: "Collaborations" },
     { id: "awards", num: "03", text: "Awards" },
     { id: "projects", num: "04", text: "Projects" },
-    { id: "reviews", num: "05", text: "Reviews" },
-    { id: "contact", num: "06", text: "Contact" },
+    { id: "contact", num: "05", text: "Contact" },
   ];
 
   // 스크롤 위치에 따라 현재 보이는 섹션 감지 (IntersectionObserver 사용)
