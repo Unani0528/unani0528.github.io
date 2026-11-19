@@ -2,15 +2,15 @@
 .stickyNav {
   position: sticky;
   /* Docusaurus 기본 네비게이션 바 바로 아래에 붙도록 설정 */
-  top: var(--ifm-navbar-height, 60px); 
-  z-index: var(--ifm-z-index-fixed, 100);
+  top: var(--ifm-navbar-height, 60px);
+  z-index: var(--ifm-z-index-fixed - 1);
 
   background: var(--portfolio-hero-banner-bg);
-  
+
   /* 부모 패딩을 무시하고 화면 좌우 끝까지 꽉 채우는 트릭 */
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  
+
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -49,5 +49,3 @@
 .activeNav span:first-child {
   opacity: 1 !important;
 }
-
-
