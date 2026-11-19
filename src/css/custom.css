@@ -4,34 +4,34 @@
  * work well for content-centric websites.
  */
 
- @font-face {
-  font-family: 'D2Coding';
+@font-face {
+  font-family: "D2Coding";
   src: url(../../static/font/D2Coding/D2Coding-Ver1.4.0-20261003.ttf);
- }
+}
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #8F6963;
-  --ifm-color-primary-dark: #A17D77;
-  --ifm-color-primary-darker: #8F6963;
-  --ifm-color-primary-darkest: #8F6963;
-  --ifm-color-primary-light: #D2BCB7;
-  --ifm-color-primary-lighter: #E0CFCA;
-  --ifm-color-primary-lightest: #EEE3DF;
+  --ifm-color-primary: #8f6963;
+  --ifm-color-primary-dark: #a17d77;
+  --ifm-color-primary-darker: #8f6963;
+  --ifm-color-primary-darkest: #8f6963;
+  --ifm-color-primary-light: #d2bcb7;
+  --ifm-color-primary-lighter: #e0cfca;
+  --ifm-color-primary-lightest: #eee3df;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
   /* 시스템 기본 폰트 설정*/
-  --ifm-font-family-base: 'D2Coding', -apple-system;
-  --ifm-font-family-monospace: 'D2Coding', -apple-system;
-  --ifm-heading-color: #2B2422;
-  --ifm-font-color-base: #49312D;
+  --ifm-font-family-base: "D2Coding", -apple-system;
+  --ifm-font-family-monospace: "D2Coding", -apple-system;
+  --ifm-heading-color: #2b2422;
+  --ifm-font-color-base: #49312d;
 
   /* 기본 배경 색상 */
   --ifm-background-color: #f2e9e4;
 
   --portfolio-hero-banner-bg: #c9ada7;
-  
+
   /* 커스텀 색상 from Djamaile */
   --portfolio-card-border: #c2c8cf;
   --portfolio-card-bg: #ffffff;
@@ -46,7 +46,7 @@
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
@@ -59,9 +59,121 @@
   /* 기본 배경 색상 */
   --ifm-background-color: #24281e;
 
-  /* 커스텀 색상 from Djamaile */ 
+  /* 커스텀 색상 from Djamaile */
   --ifm-heading-color: #f1f5f9;
   --portfolio-card-bg: #16261b;
   --portfolio-card-border: #334155;
   --portfolio-text-muted: #94a3b8;
+}
+
+/* ---------------------------------------------------- */
+/* Snow Flake Effect */
+
+@import url("https://fonts.googleapis.com/css?family=Molle:400i");
+
+@-webkit-keyframes snowflakes-fall {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@-webkit-keyframes snowflakes-shake {
+  0%,
+  100% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+  50% {
+    -webkit-transform: translateX(80px);
+    transform: translateX(80px);
+  }
+}
+
+@keyframes snowflakes-fall {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes snowflakes-shake {
+  0%,
+  100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(80px);
+  }
+}
+
+.snowflake {
+  color: #fff;
+  font-size: 1.8em;
+  font-family: "Molle", cursive;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
+  position: fixed;
+  top: -10%;
+  z-index: 9999;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  -webkit-animation-name: snowflakes-fall, snowflakes-shake;
+  -webkit-animation-duration: 10s, 3s;
+  -webkit-animation-timing-function: linear, ease-in-out;
+  -webkit-animation-iteration-count: infinite, infinite;
+  -webkit-animation-play-state: running, running;
+  animation-name: snowflakes-fall, snowflakes-shake;
+  animation-duration: 10s, 3s;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  animation-play-state: running, running;
+}
+
+.snowflake:nth-of-type(1) {
+  left: 8%;
+  animation-delay: 0s, 0s;
+}
+.snowflake:nth-of-type(2) {
+  left: 16%;
+  animation-delay: 1s, 1s;
+}
+.snowflake:nth-of-type(3) {
+  left: 25%;
+  animation-delay: 6s, 0.5s;
+}
+.snowflake:nth-of-type(4) {
+  left: 34%;
+  animation-delay: 4s, 2s;
+}
+.snowflake:nth-of-type(5) {
+  left: 43%;
+  animation-delay: 2s, 2s;
+}
+.snowflake:nth-of-type(6) {
+  left: 52%;
+  animation-delay: 8s, 3s;
+}
+.snowflake:nth-of-type(7) {
+  left: 61%;
+  animation-delay: 6s, 2s;
+}
+.snowflake:nth-of-type(8) {
+  left: 70%;
+  animation-delay: 2.5s, 1s;
+}
+.snowflake:nth-of-type(9) {
+  left: 79%;
+  animation-delay: 1s, 0s;
+}
+.snowflake:nth-of-type(10) {
+  left: 88%;
+  animation-delay: 3s, 1.5s;
 }
