@@ -1,19 +1,4 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
-
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
-
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
-
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+CSAPP:
+  label: CSAPP
+  permalink: /csapp
+  description: "CSAPP 는 Computer Systems: A Programmer's Perspective 의 책을 부르는 약자이다."
