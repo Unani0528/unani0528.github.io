@@ -64,6 +64,8 @@ const config: Config = {
           onInlineTags: "warn",
           onInlineAuthors: "warn",
           onUntruncatedBlogPosts: "warn",
+          blogSidebarTitle: "Posts", // 선택: 기본값 'Recent posts'에서 제목 변경
+          blogSidebarCount: "ALL", // 블로그 사이드바에 모든 글 표시
         },
         theme: {
           customCss: "./src/css/custom.css",
