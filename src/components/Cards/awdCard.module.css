@@ -1,0 +1,181 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin: 24px 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 14px;
+  background: var(--ifm-background-surface-color);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.awardLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--ifm-color-primary);
+}
+
+.date {
+  font-size: 12px;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.title {
+  margin-bottom: 8px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.competition {
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 16px;
+  font-size: 12px;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.description {
+  flex: 1;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ifm-font-color-base);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: var(--ifm-color-emphasis-200);
+  font-size: 11px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.projectButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 13px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.projectButton {
+  background: var(--ifm-color-primary);
+  color: white;
+}
+
+.secondaryButton {
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-font-color-base);
+}
+
+.projectButton:hover,
+.secondaryButton:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.awardsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.yearSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.yearHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.yearTitle {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.awardCount {
+  font-size: 13px;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--ifm-color-emphasis-300);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cardDivider {
+  width: 100%;
+  height: 1px;
+  margin-bottom: 16px;
+  background: var(--ifm-color-emphasis-200);
+}
