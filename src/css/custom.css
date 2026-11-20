@@ -4,6 +4,10 @@
  * work well for content-centric websites.
  */
 
+html {
+  scroll-behavior: smooth;
+}
+
 @font-face {
   font-family: "D2Coding";
   src: url(../../static/font/D2Coding/D2Coding-Ver1.4.0-20261003.ttf);
