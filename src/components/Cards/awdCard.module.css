@@ -18,7 +18,8 @@
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
@@ -37,7 +38,7 @@
 }
 
 .date {
-  font-size: 12px;
+  font-size: 1rem;
   color: var(--ifm-color-emphasis-600);
 }
 
@@ -81,7 +82,7 @@
   padding: 4px 10px;
   border-radius: 20px;
   background: var(--ifm-color-emphasis-200);
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 
 .actions {
