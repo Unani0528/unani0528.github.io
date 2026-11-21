@@ -48,8 +48,33 @@ html {
   --almond-silk: #c9ada7ff;
   --parchment: #f2e9e4ff;
 }
+[data-theme="dark"] {
+  /* Primary: light의 #8f6963을 밝게 올린 톤 */
+  --ifm-color-primary: #d1a59d;
+  --ifm-color-primary-dark: #c4948b;
+  --ifm-color-primary-darker: #b88378;
+  --ifm-color-primary-darkest: #9c6a60;
+  --ifm-color-primary-light: #dcb7b0;
+  --ifm-color-primary-lighter: #e3c5bf;
+  --ifm-color-primary-lightest: #efdad6;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
+  /* 배경 / 표면 */
+  --ifm-background-color: #1f1a19;
+  --ifm-background-surface-color: #272020;
+  --portfolio-hero-banner-bg: #3a2e2c;
+
+  /* 텍스트 */
+  --ifm-font-color-base: #e8dcd7;
+  --ifm-heading-color: #f5ece8;
+  --portfolio-text-muted: #a8978f;
+
+  /* 카드 */
+  --portfolio-card-bg: #2a2220;
+  --portfolio-card-border: #4a3d3a;
+}
 /* For readability concerns, you should choose a lighter palette in dark mode. */
+/*
 [data-theme="dark"] {
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
@@ -60,15 +85,16 @@ html {
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
-  /* 기본 배경 색상 */
+  /* 기본 배경 색상
   --ifm-background-color: #24281e;
 
-  /* 커스텀 색상 from Djamaile */
+  /* 커스텀 색상 from Djamaile
   --ifm-heading-color: #f1f5f9;
   --portfolio-card-bg: #16261b;
   --portfolio-card-border: #334155;
   --portfolio-text-muted: #94a3b8;
 }
+*/
 
 /* ---------------------------------------------------- */
 /* Snow Flake Effect */
