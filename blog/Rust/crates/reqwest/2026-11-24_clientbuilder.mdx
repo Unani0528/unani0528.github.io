@@ -1,0 +1,80 @@
+---
+# 1. 기본 정보 및 SEO
+title: "[reqwest] Client를 사용한 HTTP요청 보내기"
+description: "reqwest의 ClientBuilder"
+slug: "/rust/crates/reqwest/ClientBuilder"
+authors: unani
+
+# 2. 작성일 및 상태 제어
+date: 2026-11-24 11:38
+draft: false
+
+# 3. 사이드바 및 네비게이션 제어
+sidebar_label: "[Rust|reqwest] HTTP 요청 보내기"
+#sidebar_position: 1
+
+# 4. 분류 및 메타데이터
+tags: [Rust, reqwest, HTTP, HTTPS, HTTP Client]
+keywords: [Rust, reqwest, HTTP, HTTPS, HTTP Client]
+#image: "/img/social-card.png"
+---
+
+# [reqwest] HTTP요청 보내기
+
+`ClientBuilder`는 `Client`를 커스텀해서 사용하기 위한 빌더
+{/*truncate*/}
+
+자세한 예제는 공식 문서를 참고하자
+
+## ClientBuilder
+
+[ClientBuilder 공식 문서]("https://docs.rs/reqwest/0.13.5/reqwest/struct.ClientBuilder.html")
+
+```Rust
+pub struct ClientBuilder { /* private fields */ }
+
+pub fn build(self) -> Result<Client>
+```
+
+빌더는 `Client`를 반환한다.
+
+## Client
+
+[Client 공식 문서](https://docs.rs/reqwest/0.13.5/reqwest/struct.Client.html)
+
+```Rust
+pub struct Client { /* private fields */ }
+
+pub fn get<U: IntoUrl>(&self, url: U) -> RequestBuilder
+```
+
+get 함수는 url을 입력 받아 `GET`요청을 만든다. `RequestBuilder`를 반환한다.
+
+## RequestBuilder
+
+[RequestBuilder 공식 문서](https://docs.rs/reqwest/0.13.5/reqwest/struct.RequestBuilder.html)
+
+```Rust
+pub struct RequestBuilder { /* private fields */ }
+
+pub fn send(self) -> impl Future<Output = Result<Response, Error>>
+```
+
+`RequestBuilder`의 `send()`함수를 사용해서 서버로 HTTP 요청을 보낸다.
+`send()`함수는 `Future<Output = Result<Response, Error>>`를 반환한다.
+
+## Response
+
+[Response 공식 문서](https://docs.rs/reqwest/0.13.5/reqwest/struct.Response.html)
+
+```Rust
+pub struct Response { /* private fields */ }
+
+pub fn status(&self) -> StatusCode
+
+pub fn headers(&self) -> &HeaderMap
+
+pub async fn bytes(self) -> Result<Bytes>
+```
+
+- `bytes()`함수는 응답의 body를 `Bytes`로 반환한다.
