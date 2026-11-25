@@ -1,0 +1,85 @@
+---
+# 1. 기본 정보 및 SEO
+
+title: "[Rust] ref 키워드"
+description: "ref 키워드에 대해"
+slug: "/rust/basic/ref"
+authors: unani
+
+# 2. 작성일 및 상태 제어
+
+date: 2026-11-24 16:20
+draft: false
+
+# 3. 사이드바 및 네비게이션 제어
+
+sidebar_label: "[Rust] ref 키워드"
+# sidebar_position: 1
+
+# 4. 분류 및 메타데이터
+
+tags: [Rust, Rust basic, ref, Reference]
+keywords: [Rust, Rust basic, ref, Reference]
+# image: "/img/social-card.png"
+---
+
+# [Rust] ref 키워드
+
+[ref 키워드 공식 문서](https://tikv.github.io/doc/quick_xml/struct.Reader.html)
+
+패턴 매칭을 할 때 참조(Reference)로 바인딩 한다.
+`ref` 어노테이션은 소유권 이동이 아닌 borrow를 수행한다.
+패턴 매칭에서 `ref`는 패턴에 포함되지 않는다.
+값이 매칭되는지 여부에는 영향을 주지 않고, 매칭 방식에만 영향을 준다.
+
+`match`문은 가능한 모든 값을 소비한다.
+`match`문 내부로 값을 이둉하거나 소유할 필요가 없는 경우 문제가 생긴다.
+
+`ref` 키드워드를 사용하면 값이 이동되지 않고 빌리기만 하기 때문에 `match`문 이후에도 사용할 수 있다.
+
+{/*truncate*/}
+
+---
+
+두 개의 코드 블록 중 위의 코드는 `maybe_name`이 `match`문 내에서 사용되기 때문에 출력될 수 없다.
+
+```Rust {4}
+let maybe_name = Some(String::from("Alice"));
+// The variable 'maybe_name' is consumed here ...
+match maybe_name {
+    Some(n) => println!("Hello, {n}"),
+    _ => println!("Hello, world"),
+}
+// ... and is now unavailable.
+println!("Hello again, {}", maybe_name.unwrap_or("world".into()));
+```
+
+<p align="center">
+[코드 실행해보기](<https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn+main()+%7B%0A++++let+maybe_name+=+Some(String::from(%22Alice%22));%0A++++//+The+variable+%27maybe_name%27+is+consumed+here+...%0A++++match+maybe_name+%7B%0A++++++++Some(n)+=%3E+println!(%22Hello,+%7Bn%7D%22),%0A++++++++_+=%3E+println!(%22Hello,+world%22),%0A++++%7D%0A++++//+...+and+is+now+unavailable.%0A++++println!(%22Hello+again,+%7B%7D%22,+maybe_name.unwrap_or(%22world%22.into()));%0A%7D&edition=2024>)
+</p>
+
+```Rust {4}
+let maybe_name = Some(String::from("Alice"));
+// Using `ref`, the value is borrowed, not moved ...
+match maybe_name {
+    Some(ref n) => println!("Hello, {n}"),
+    _ => println!("Hello, world"),
+}
+// ... so it's available here!
+println!("Hello again, {}", maybe_name.unwrap_or("world".into()));
+```
+
+<p align="center">
+[코드 실행해보기](<https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn+main()+%7B%0A++++let+maybe_name+=+Some(String::from(%22Alice%22));%0A++++//+Using+%60ref%60,+the+value+is+borrowed,+not+moved+...%0A++++match+maybe_name+%7B%0A++++++++Some(ref+n)+=%3E+println!(%22Hello,+%7Bn%7D%22),%0A++++++++_+=%3E+println!(%22Hello,+world%22),%0A++++%7D%0A++++//+...+so+it%27s+available+here!%0A++++println!(%22Hello+again,+%7B%7D%22,+maybe_name.unwrap_or(%22world%22.into()));%0A%7D&edition=2024>)
+</p>
+
+---
+
+## `&`과 `ref`의 차이
+
+- `&`\
+  참조를 생성하는 연산자이다.
+  값이나 타입 쪽에서 참조를 만들거나 타입을 명시할 때 쓴다.
+- `ref`\
+  패턴매칭에서만 사용한다.
+  패턴 매칭시 값을 빌려오는 용도로만 쓴다.
